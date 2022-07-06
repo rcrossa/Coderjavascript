@@ -147,49 +147,6 @@
       </div>
     </div>
   </section>
-  <section>
-    <script>
-      var product = [];
-
-      function fun() {
-        var x = {};
-        x.price = document.getElementById('price').value;
-        x.title = document.getElementById('title').value;
-        product.push(x);
-
-        var iDiv = document.createElement('div');
-        iDiv.id = product.length;
-        iDiv.className = 'block1';
-        document.getElementsByClassName('bloque')[0].appendChild(iDiv);
-
-        var para = document.createElement("span");
-        var node = document.createTextNode('Title: ' + x.title + ' |                    ');
-        para.appendChild(node);
-
-        var element = document.getElementById(product.length);
-        element.appendChild(para);
-
-        para = document.createElement("span");
-        node = document.createTextNode('Price: ' + x.price);
-        para.appendChild(node);
-
-        element.appendChild(para);
-      }
-      document.body.onload = addElement;
-
-
-    </script>
-
-    Title:<input id="title" type="text">
-    Price:<input id="price" type="number">
-    <button onClick="fun()">Add to Cart </button>
-    <div>
-      <p><strong>Cart Info</strong></p>
-      <div class="bloque"></div>
-    </div>
-
-  </section>
-
   <footer>
     <section class="footer_section">
       <div class="datosPersonales">
