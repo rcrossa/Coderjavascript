@@ -1,0 +1,25 @@
+{
+  "name": "cursohtml",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "yarn test",
+    "build-css": "node-sass --include-path scss scss/style.scss styles/main.css",
+    "watch-css": "nodemon -e scss -x \"yarn run build-css\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rcrossa/CursoHtml.git"
+  },
+  "author": "Roberto Rossa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rcrossa/CursoHtml/issues"
+  },
+  "homepage": "https://github.com/rcrossa/CursoHtml#readme",
+  "devDependencies": {
+    "node-sass": "^7.0.1",
+    "nodemon": "^2.0.16"
+  }
+}
