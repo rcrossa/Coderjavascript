@@ -4,7 +4,7 @@
     "id": 1,
     "title": "Titulo 1",
     "img": "../images/IMG_5613.png",
-    "precio": 30,
+    "price": 10,
     "description": "Esto es una prueba"
   },
   {
@@ -12,7 +12,7 @@
     "id": 2,
     "title": "Titulo 2",
     "img": "../images/IMG_5613.png",
-    "precio": 30,
+    "price": 20,
     "description": "Esto es una prueba"
   },
   {
@@ -20,7 +20,47 @@
     "id": 3,
     "title": "Titulo 3",
     "img": "../images/IMG_5613.png",
-    "precio": 30,
+    "price": 30,
+    "description": "Esto es una prueba"
+  },
+  {
+    "userId": 1,
+    "id": 3,
+    "title": "Titulo 4",
+    "img": "../images/IMG_5613.png",
+    "price": 40,
+    "description": "Esto es una prueba"
+  },
+  {
+    "userId": 1,
+    "id": 3,
+    "title": "Titulo 5",
+    "img": "../images/IMG_5613.png",
+    "price": 50,
+    "description": "Esto es una prueba"
+  },
+  {
+    "userId": 1,
+    "id": 3,
+    "title": "Titulo 6",
+    "img": "../images/IMG_5613.png",
+    "price": 60,
+    "description": "Esto es una prueba"
+  },
+  {
+    "userId": 1,
+    "id": 3,
+    "title": "Titulo 7",
+    "img": "../images/IMG_5613.png",
+    "price": 70,
+    "description": "Esto es una prueba"
+  },
+  {
+    "userId": 1,
+    "id": 3,
+    "title": "Titulo 8",
+    "img": "../images/IMG_5613.png",
+    "price": 80,
     "description": "Esto es una prueba"
   }
 ]

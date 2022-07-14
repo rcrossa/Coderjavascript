@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="../styles/style.css">
 </head>
 <title>Document</title>
 </head>
@@ -17,20 +18,36 @@
             <h1>Tienda de productos</h1>
             <hr>
             <div class="row" id="items"></div>
+            <!-- <button type="button" class="btn btn-secondary" data-bs-toggle="popover" data-bs-placement="right"
+                data-bs-custom-class="custom-popover" title="Custom popover"
+                data-bs-content="This popover is themed via CSS variables.">
+                Custom popover
+            </button> -->
+            <!-- <aside class="col-sm-4">
+                <h2>Carrito</h2> -->
+            <!-- Elementos del carrito -->
+            <!-- <ul id="carrito" class="list-group"></ul>
+                <hr> -->
+            <!-- Precio total -->
+            <!-- <p class="text-right">Total: <span id="total"></span>&euro;</p>
+                <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
+            </aside> -->
         </div>
         <template id="template-card">
-            <div class="col-auto mb-2 col-md-4 col-sm-7">
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4">
                 <div class="card">
                     <img src="" alt="" class="card-img-top">
                     <div class="card-body">
-                        <h2>Titulo</h2>
-                        <p>precio</p>
-                        <button class="btn btn-success">Comprar</button>
+                        <h2>title</h2>
+                        <p class="description">description</p>
+                        <p class="precio">price</p>
+                        <button class="btn btn-success">buy</button>
                     </div>
                 </div>
             </div>
         </template>
     </section>
+
     <script src='../js/carrito.js'></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
         integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
