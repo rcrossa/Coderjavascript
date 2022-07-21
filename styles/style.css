@@ -70,17 +70,16 @@ main>h1 {
 }
 
 /* ---- car ---- */
-.btn-secondary {
-  margin: 100px;
+.filterInput {
+  margin: 1em auto;
 }
 
-.custom-popover {
-  --bs-popover-max-width: 200px;
-  --bs-popover-border-color: var(--bs-primary);
-  --bs-popover-header-bg: var(--bs-primary);
-  --bs-popover-header-color: var(--bs-white);
-  --bs-popover-body-padding-x: 1rem;
-  --bs-popover-body-padding-y: .5rem;
+.search_box {
+  margin: 1em 0em 0em 0em;
+  border-style: solid 1.5px #D3D3D3;
+  border-radius: 5px;
+  width: 75%;
+  height: 2em;
 }
 
 /* ---- Page Service ---- */
