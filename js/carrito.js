@@ -2,13 +2,15 @@ const cards = document.getElementById('cards')
 const items = document.getElementById('items')
 const footer = document.getElementById('footer')
 const filtro = document.getElementById('filtro')
-const templateSelect = document.getElementById('template_select').content
+const search = document.getElementsByClassName('search_box')[0]
+const ulContent = document.getElementsByClassName('ulContent')
 const templateCard = document.getElementById('template-card').content
 const templateFooter = document.getElementById('template-footer').content
 const templateCarrito = document.getElementById('template-carrito').content
 const fragment = document.createDocumentFragment()
 
-let carr = {}
+let carr = []
+let fillData = []
 
 document.addEventListener('DOMContentLoaded', () => {
     fetchData();
@@ -24,36 +26,36 @@ cards.addEventListener('click', e => {
 items.addEventListener('click', e => {
     btnAction(e)
 })
-const fetchData = async () => {
+console.log(search);
+
+search.addEventListener('change', e => {
+    console.log(e.target.value);
+    fetchData(e.target.value)
+});
+
+const fetchData = async (keyword = '') => {
     try {
         const res = await fetch('../js/api.json');
         const data = await res.json();
-        let keywordToSearch = 'Titu'; // word to search
-        let keyword = keywordToSearch.toLowerCase();
-        filtrar(data, keyword);
-        drawCards(data);
-        filterName(data)
+        if (keyword) {
+            filtrar(data, keyword);
+            drawCards(fillData);
+        } else {
+            drawCards(data);
+        }
     } catch (error) {
         console.log(error);
     }
 }
-const filterName = data => {
-    data.forEach(producto => {
-        templateSelect.querySelector("option[value]").textContent = producto.title;
-
-        const clone = templateSelect.cloneNode(true)
-        fragment.appendChild(clone)
-    });
-    filtro.appendChild(fragment)
-}
 
 const drawCards = data => {
+    cards.innerHTML = ''
     data.forEach(producto => {
         templateCard.querySelector('img').setAttribute('src', producto.img)
         templateCard.querySelector('h2').textContent = producto.title
         templateCard.querySelector('.precio').textContent = producto.price
         templateCard.querySelector('.description').textContent = producto.description
-        templateCard.querySelector('.btn-success').dataset.id = producto.id
+        templateCard.querySelector('.btn-outline-primary').dataset.id = producto.id
         const clone = templateCard.cloneNode(true)
         fragment.appendChild(clone)
     })
@@ -61,7 +63,7 @@ const drawCards = data => {
 }
 
 const addCar = e => {
-    if (e.target.classList.contains('btn-success')) {
+    if (e.target.classList.contains('btn-outline-primary')) {
         setCar(e.target.parentElement);
     }
     e.stopPropagation()
@@ -69,7 +71,7 @@ const addCar = e => {
 
 const setCar = object => {
     const producto = {
-        id: object.querySelector('.btn-success').dataset.id,
+        id: object.querySelector('.btn-outline-primary').dataset.id,
         title: object.querySelector('h2').textContent,
         price: object.querySelector('.precio').textContent,
         description: object.querySelector('.description').textContent,
@@ -84,19 +86,24 @@ const setCar = object => {
 
 const drawCar = () => {
     items.innerHTML = ''
-    Object.values(carr).forEach((producto) => {
-        templateCarrito.querySelector('th').textContent = producto.id
-        templateCarrito.querySelectorAll('td')[0].textContent = producto.title
-        templateCarrito.querySelectorAll('td')[1].textContent = producto.cantidad
-        templateCarrito.querySelector('.btn-info').dataset.id = producto.id
-        templateCarrito.querySelector('.btn-danger').dataset.id = producto.id
-        templateCarrito.querySelector('span').textContent = producto.cantidad * producto.price
-        const clone = templateCarrito.cloneNode(true)
-        fragment.appendChild(clone)
-    })
-    items.appendChild(fragment);
-    drawFooter();
-    localStorage.setItem('carr', JSON.stringify(carr));
+    console.log(carr);
+    if (!Object.values(carr).some(e => e === null)) {
+        Object.values(carr).forEach((producto) => {
+            templateCarrito.querySelector('th').textContent = producto.id
+            templateCarrito.querySelectorAll('td')[0].textContent = producto.title
+            templateCarrito.querySelectorAll('td')[1].textContent = producto.cantidad
+            templateCarrito.querySelector('.btn-info').dataset.id = producto.id
+            templateCarrito.querySelector('.btn-danger').dataset.id = producto.id
+            templateCarrito.querySelector('span').textContent = producto.cantidad * producto.price
+            const clone = templateCarrito.cloneNode(true)
+            fragment.appendChild(clone)
+        })
+        items.appendChild(fragment);
+        drawFooter();
+        localStorage.setItem('carr', JSON.stringify(carr));
+    } else {
+        localStorage.clear();
+    }
 }
 
 const drawFooter = () => {
@@ -137,6 +144,7 @@ const btnAction = e => {
         producto.cantidad--
         if (producto.cantidad === 0) {
             delete carr[e.target.dataset.id]
+            localStorage.removeItem(carr[e.target.dataset.id]);
         }
         drawCar();
     }
@@ -146,8 +154,9 @@ const btnAction = e => {
 
 const filtrar = (data, keyword) => {
     //search keyword from data array by name
-    let searchResult = data.filter(word => word.title.toLowerCase().indexOf(keyword) > -1);
-    console.log(searchResult);
+    fillData = Array.from(data.filter(word => word.title.toLowerCase().indexOf(keyword) > -1));
+    // drawCards(fillData);
+    console.log(fillData);
 
 
 }
