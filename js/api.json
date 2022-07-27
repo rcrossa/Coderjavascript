@@ -2,64 +2,64 @@
   {
     "userId": 1,
     "id": 1,
-    "title": "Uno",
-    "img": "../images/IMG_5613.png",
+    "title": "Brownie",
+    "img": "../images/carrito/IMG_6168.png",
     "price": 10,
     "description": "Esto es una prueba"
   },
   {
     "userId": 2,
     "id": 2,
-    "title": "Product 2",
-    "img": "../images/IMG_5613.png",
+    "title": "Cheesecake",
+    "img": "../images/carrito/IMG_6171.png",
     "price": 20,
     "description": "Esto es una prueba"
   },
   {
     "userId": 3,
     "id": 3,
-    "title": "Titulo 3",
-    "img": "../images/IMG_5613.png",
+    "title": "Lemon Pie",
+    "img": "../images/carrito/IMG_6172.png",
     "price": 30,
     "description": "Esto es una prueba"
   },
   {
     "userId": 4,
     "id": 4,
-    "title": "Titulo 4",
-    "img": "../images/IMG_5613.png",
+    "title": "Pepas",
+    "img": "../images/carrito/IMG_6173.png",
     "price": 40,
     "description": "Esto es una prueba"
   },
   {
     "userId": 5,
     "id": 5,
-    "title": "Titulo 5",
-    "img": "../images/IMG_5613.png",
+    "title": "Alfajores de Coco",
+    "img": "../images/carrito/IMG_6175.png",
     "price": 50,
     "description": "Esto es una prueba"
   },
   {
     "userId": 6,
     "id": 6,
-    "title": "Titulo 6",
-    "img": "../images/IMG_5613.png",
-    "price": 60,
+    "title": "Chipa",
+    "img": "../images/carrito/IMG_6176.png",
+    "price": 80,
     "description": "Esto es una prueba"
   },
   {
     "userId": 7,
     "id": 7,
-    "title": "Titulo 7",
-    "img": "../images/IMG_5613.png",
-    "price": 70,
+    "title": "Pastafrola",
+    "img": "../images/carrito/IMG_6177.png",
+    "price": 80,
     "description": "Esto es una prueba"
   },
   {
     "userId": 8,
     "id": 8,
     "title": "Titulo 8",
-    "img": "../images/IMG_5613.png",
+    "img": "../images/carrito/IMG_5616.png",
     "price": 80,
     "description": "Esto es una prueba"
   }

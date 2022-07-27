@@ -21,16 +21,24 @@
   background-color: #072146;
   font-size: larger;
   font-weight: 500; }
-  .main-head .bgnav .containernav .logo {
-    margin: 0;
-    padding: 0; }
-    .main-head .bgnav .containernav .logo img {
-      height: 5em;
-      width: auto; }
-      .main-head .bgnav .containernav .logo img:hover {
-        filter: saturate(180%) brightness(500%); }
-  .main-head .bgnav .containernav #navbarNav ul {
-    padding: 1em 0em 1em 0em; }
+  .main-head .bgnav .position_up {
+    position: absolute;
+    top: 2em;
+    right: 2em; }
+    .main-head .bgnav .position_up input {
+      margin-right: 0.5em; }
+  .main-head .bgnav .containernav {
+    position: relative; }
+    .main-head .bgnav .containernav .logo {
+      margin: 0;
+      padding: 0; }
+      .main-head .bgnav .containernav .logo img {
+        height: 5em;
+        width: auto; }
+        .main-head .bgnav .containernav .logo img:hover {
+          filter: saturate(180%) brightness(500%); }
+    .main-head .bgnav .containernav #navbarNav ul {
+      padding: 1em 0em 1em 0em; }
 
 .section_card {
   background-color: #e4e0ff; }

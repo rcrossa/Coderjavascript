@@ -1,75 +1,26 @@
-const cards = document.getElementById('cards')
 const items = document.getElementById('items')
 const footer = document.getElementById('footer')
-const filtro = document.getElementById('filtro')
-const search = document.getElementsByClassName('search_box')[0]
-const ulContent = document.getElementsByClassName('ulContent')
-const templateCard = document.getElementById('template-card').content
 const templateFooter = document.getElementById('template-footer').content
 const templateCarrito = document.getElementById('template-carrito').content
 const fragment = document.createDocumentFragment()
-
 let carr = []
-let fillData = []
 
 document.addEventListener('DOMContentLoaded', () => {
-    fetchData();
-    if (localStorage.getItem('carr')) {
-        carr = JSON.parse(localStorage.getItem('carr'))
+    if (window.localStorage.getItem('carr')) {
+        carr = JSON.parse(window.localStorage.getItem('carr'))
         drawCar()
+        // contar(data);
     }
 });
-cards.addEventListener('click', e => {
-    addCar(e)
-})
 
-items.addEventListener('click', e => {
-    btnAction(e)
-})
-console.log(search);
-
-search.addEventListener('change', e => {
-    console.log(e.target.value);
-    fetchData(e.target.value)
-});
-
-const fetchData = async (keyword = '') => {
-    try {
-        const res = await fetch('../js/api.json');
-        const data = await res.json();
-        if (keyword) {
-            filtrar(data, keyword);
-            drawCards(fillData);
-        } else {
-            drawCards(data);
-        }
-    } catch (error) {
-        console.log(error);
-    }
-}
-
-const drawCards = data => {
-    cards.innerHTML = ''
-    data.forEach(producto => {
-        templateCard.querySelector('img').setAttribute('src', producto.img)
-        templateCard.querySelector('h2').textContent = producto.title
-        templateCard.querySelector('.precio').textContent = producto.price
-        templateCard.querySelector('.description').textContent = producto.description
-        templateCard.querySelector('.btn-outline-primary').dataset.id = producto.id
-        const clone = templateCard.cloneNode(true)
-        fragment.appendChild(clone)
-    })
-    cards.appendChild(fragment)
-}
-
-const addCar = e => {
+export const addCar = e => {
     if (e.target.classList.contains('btn-outline-primary')) {
         setCar(e.target.parentElement);
     }
     e.stopPropagation()
 }
 
-const setCar = object => {
+export const setCar = object => {
     const producto = {
         id: object.querySelector('.btn-outline-primary').dataset.id,
         title: object.querySelector('h2').textContent,
@@ -84,10 +35,10 @@ const setCar = object => {
     drawCar();
 }
 
-const drawCar = () => {
+export const drawCar = () => {
     items.innerHTML = ''
     console.log(carr);
-    if (!Object.values(carr).some(e => e === null)) {
+    if (!Object.values(carr).some(e => e == null)) {
         Object.values(carr).forEach((producto) => {
             templateCarrito.querySelector('th').textContent = producto.id
             templateCarrito.querySelectorAll('td')[0].textContent = producto.title
@@ -100,13 +51,14 @@ const drawCar = () => {
         })
         items.appendChild(fragment);
         drawFooter();
-        localStorage.setItem('carr', JSON.stringify(carr));
-    } else {
-        localStorage.clear();
+        window.localStorage.removeItem('carr');
+        window.localStorage.setItem('carr', JSON.stringify(carr.filter(e => e !== null)));
     }
 }
-
-const drawFooter = () => {
+export function contar(data) {
+    console.log('son' + data.length);
+}
+export const drawFooter = () => {
     footer.innerHTML = '';
     if (Object.keys(carr).length == 0) {
         footer.innerHTML = '';
@@ -114,7 +66,7 @@ const drawFooter = () => {
     }
 
     const cantidades = Object.values(carr).reduce((acc, { cantidad }) => acc + cantidad, 0)
-    const total = Object.values(carr).reduce((acc, { cantidad, price }) => acc + cantidad * price, 0)
+    const total = Object.values(carr).reduce((acc, { cantidad, price }) => acc + (cantidad * price), 0)
 
     templateFooter.querySelectorAll('td')[0].textContent = cantidades
     templateFooter.querySelector('span').textContent = total
@@ -132,7 +84,7 @@ const drawFooter = () => {
 
 }
 
-const btnAction = e => {
+export const btnAction = e => {
     if (e.target.classList.contains('btn-info')) {
         const producto = carr[e.target.dataset.id]
         producto.cantidad++
@@ -144,21 +96,10 @@ const btnAction = e => {
         producto.cantidad--
         if (producto.cantidad === 0) {
             delete carr[e.target.dataset.id]
-            localStorage.removeItem(carr[e.target.dataset.id]);
         }
         drawCar();
     }
     e.stopPropagation();
-
-}
-
-const filtrar = (data, keyword) => {
-    //search keyword from data array by name
-    fillData = Array.from(data.filter(word => word.title.toLowerCase().indexOf(keyword) > -1));
-    // drawCards(fillData);
-    console.log(fillData);
-
-
 }
 
 

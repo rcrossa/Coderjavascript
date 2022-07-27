@@ -40,7 +40,16 @@ $entities-map: (
     font-size: larger;
     font-weight: 500;
 
+    .position_up {
+      position: absolute;
+      top: 2em;
+      right: 2em;
+      input {
+        margin-right: 0.5em;
+      }
+    }
     .containernav {
+      position: relative;
       .logo {
         margin: 0;
         padding: 0;
