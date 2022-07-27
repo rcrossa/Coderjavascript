@@ -332,11 +332,6 @@ main>h1 {
 
 
 /* ---- Page contact ----*/
-.mapa>iframe {
-  /* padding-top: 3em; */
-  padding: 3em 0em 3em 0em;
-}
-
 .main_container_contact {
   display: flex;
   justify-content: space-around;
@@ -401,6 +396,15 @@ legend {
   transform: translateY(4px);
 }
 
+.mapa {
+  display: flex;
+  flex-direction: column;
+}
+
+.mapa>iframe {
+  /* padding-top: 3em; */
+  padding: 2em 0em 2em 0em;
+}
 
 /* -- footer -- */
 footer {
