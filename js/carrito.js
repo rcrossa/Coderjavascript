@@ -3,15 +3,18 @@ const footer = document.getElementById('footer')
 const templateFooter = document.getElementById('template-footer').content
 const templateCarrito = document.getElementById('template-carrito').content
 const fragment = document.createDocumentFragment()
-let carr = []
+let carr = {}
 
 document.addEventListener('DOMContentLoaded', () => {
     if (window.localStorage.getItem('carr')) {
         carr = JSON.parse(window.localStorage.getItem('carr'))
         drawCar()
-        // contar(data);
     }
 });
+
+items.addEventListener('click', e => {
+    btnAction1(e)
+})
 
 export const addCar = e => {
     if (e.target.classList.contains('btn-outline-primary')) {
@@ -21,6 +24,7 @@ export const addCar = e => {
 }
 
 export const setCar = object => {
+    console.log("Testeando setcar \n");
     const producto = {
         id: object.querySelector('.btn-outline-primary').dataset.id,
         title: object.querySelector('h2').textContent,
@@ -31,32 +35,29 @@ export const setCar = object => {
     if (carr.hasOwnProperty(producto.id)) {
         producto.cantidad = carr[producto.id].cantidad + 1
     }
-    carr[producto.id] = { ...producto }
+    // console.log(carr);
+    carr = { ...carr, [producto.id]: producto }
+    console.log(carr[producto.id]);
     drawCar();
 }
 
 export const drawCar = () => {
     items.innerHTML = ''
-    console.log(carr);
-    if (!Object.values(carr).some(e => e == null)) {
-        Object.values(carr).forEach((producto) => {
-            templateCarrito.querySelector('th').textContent = producto.id
-            templateCarrito.querySelectorAll('td')[0].textContent = producto.title
-            templateCarrito.querySelectorAll('td')[1].textContent = producto.cantidad
-            templateCarrito.querySelector('.btn-info').dataset.id = producto.id
-            templateCarrito.querySelector('.btn-danger').dataset.id = producto.id
-            templateCarrito.querySelector('span').textContent = producto.cantidad * producto.price
-            const clone = templateCarrito.cloneNode(true)
-            fragment.appendChild(clone)
-        })
-        items.appendChild(fragment);
-        drawFooter();
-        window.localStorage.removeItem('carr');
-        window.localStorage.setItem('carr', JSON.stringify(carr.filter(e => e !== null)));
-    }
-}
-export function contar(data) {
-    console.log('son' + data.length);
+    Object.values(carr).forEach((producto) => {
+        templateCarrito.querySelector('th').textContent = producto.id
+        templateCarrito.querySelectorAll('td')[0].textContent = producto.title
+        templateCarrito.querySelectorAll('td')[1].textContent = producto.cantidad
+        templateCarrito.querySelector('.btn-info').dataset.id = producto.id
+        templateCarrito.querySelector('.btn-danger').dataset.id = producto.id
+        templateCarrito.querySelector('span').textContent = producto.cantidad * producto.price
+        const clone = templateCarrito.cloneNode(true)
+        fragment.appendChild(clone)
+    })
+    items.appendChild(fragment);
+    drawFooter();
+    window.localStorage.removeItem('carr');
+    window.localStorage.setItem('carr', JSON.stringify(carr));
+
 }
 export const drawFooter = () => {
     footer.innerHTML = '';
@@ -77,11 +78,37 @@ export const drawFooter = () => {
 
     const btnVaciar = document.getElementById('vaciar-carrito')
     btnVaciar.addEventListener('click', () => {
-        carr = [];
+        carr = {};
         drawCar();
     })
 
+}
 
+export const btnAction1 = e => {
+    if (e.target.classList.contains('btn-add-element')) {
+        Object.values(carr).filter(item => item).forEach((Element) => {
+            if (Element.id === e.target.dataset.id) {
+                const productadd = Element.cantidad++
+                Element[e.target.dataset.id] = { ...productadd }
+                drawCar();
+            }
+        });
+    }
+
+    if (e.target.classList.contains('btn-delete-element')) {
+        Object.values(carr).filter(item => item).forEach((Element) => {
+            if (Element.id === e.target.dataset.id) {
+                const productdel = Element.cantidad--
+                Element[e.target.dataset.id] = { ...productdel }
+                if (Element.cantidad == 0) {
+                    delete carr[e.target.dataset.id]
+                }
+                console.log(Element);
+            }
+        });
+        drawCar()
+    }
+    e.stopPropagation();
 }
 
 export const btnAction = e => {
@@ -99,6 +126,7 @@ export const btnAction = e => {
         }
         drawCar();
     }
+
     e.stopPropagation();
 }
 

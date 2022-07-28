@@ -6,15 +6,14 @@ const search = document.getElementsByClassName('search_box')[0]
 const templateCard = document.getElementById('template-card').content
 const fragment = document.createDocumentFragment()
 
-let carr = []
-let fillData = []
+let carr = {}
+let fillData = {}
 
 document.addEventListener('DOMContentLoaded', () => {
     fetchData();
     if (window.localStorage.getItem('carr')) {
         carr = JSON.parse(window.localStorage.getItem('carr'))
         drawCar()
-        // contar(data);
     }
 });
 cards.addEventListener('click', e => {
@@ -24,10 +23,8 @@ cards.addEventListener('click', e => {
 items.addEventListener('click', e => {
     btnAction(e)
 })
-console.log(search);
 
 search.addEventListener('change', e => {
-    console.log(e.target.value);
     fetchData(e.target.value)
 });
 
@@ -61,9 +58,7 @@ const drawCards = data => {
 }
 
 const filtrar = (data, keyword) => {
-    //search keyword from data array by name
     fillData = Array.from(data.filter(word => word.title.toLowerCase().indexOf(keyword) > -1));
-    console.log(fillData);
 }
 
 
