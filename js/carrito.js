@@ -24,7 +24,6 @@ export const addCar = e => {
 }
 
 export const setCar = object => {
-    console.log("Testeando setcar \n");
     const producto = {
         id: object.querySelector('.btn-outline-primary').dataset.id,
         title: object.querySelector('h2').textContent,
@@ -35,7 +34,6 @@ export const setCar = object => {
     if (carr.hasOwnProperty(producto.id)) {
         producto.cantidad = carr[producto.id].cantidad + 1
     }
-    // console.log(carr);
     carr = { ...carr, [producto.id]: producto }
     console.log(carr[producto.id]);
     drawCar();
