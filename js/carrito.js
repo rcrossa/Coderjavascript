@@ -16,13 +16,25 @@ items.addEventListener('click', e => {
     btnAction1(e)
 })
 
+
 export const addCar = e => {
     if (e.target.classList.contains('btn-outline-primary')) {
         setCar(e.target.parentElement);
+        const toast = new bootstrap.Toast(toastLiveExample)
+        toast.show()
     }
     e.stopPropagation()
 }
+// notification
+const toastTrigger = document.getElementById('liveToastBtn')
+const toastLiveExample = document.getElementById('liveToast')
+if (toastTrigger) {
+    toastTrigger.addEventListener('click', () => {
+        const toast = new bootstrap.Toast(toastLiveExample)
 
+        toast.show()
+    })
+}
 
 export const setCar = object => {
     const producto = {
