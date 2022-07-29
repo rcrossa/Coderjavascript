@@ -23,6 +23,7 @@ export const addCar = e => {
     e.stopPropagation()
 }
 
+
 export const setCar = object => {
     const producto = {
         id: object.querySelector('.btn-outline-primary').dataset.id,
@@ -35,6 +36,7 @@ export const setCar = object => {
         producto.cantidad = carr[producto.id].cantidad + 1
     }
     carr = { ...carr, [producto.id]: producto }
+
     console.log(carr[producto.id]);
     drawCar();
 }
@@ -127,6 +129,3 @@ export const btnAction = e => {
 
     e.stopPropagation();
 }
-
-
-
