@@ -1,7 +1,6 @@
 import { addCar, drawCar, btnAction } from './carrito.js';
 const cards = document.getElementById('cards')
 const items = document.getElementById('items')
-const filtro = document.getElementById('filtro')
 const search = document.getElementsByClassName('search_box')[0]
 const templateCard = document.getElementById('template-card').content
 const fragment = document.createDocumentFragment()
@@ -32,12 +31,7 @@ const fetchData = async (keyword = '') => {
     try {
         const res = await fetch('../js/api.json');
         const data = await res.json();
-        if (keyword) {
-            filtrar(data, keyword);
-            drawCards(fillData);
-        } else {
-            drawCards(data);
-        }
+        (keyword) ? (filtrar(data, keyword))(drawCards(fillData)) : (drawCards(data))
     } catch (error) {
         console.log(error);
     }

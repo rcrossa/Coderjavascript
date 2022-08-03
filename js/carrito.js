@@ -6,10 +6,10 @@ const fragment = document.createDocumentFragment()
 let carr = {}
 
 document.addEventListener('DOMContentLoaded', () => {
-    if (window.localStorage.getItem('carr')) {
-        carr = JSON.parse(window.localStorage.getItem('carr'))
-        drawCar()
-    }
+    (window.localStorage.getItem('carr')) ?
+        (carr = JSON.parse(window.localStorage.getItem('carr')))
+            (drawCar()) :
+        (console.log('no anda el carrito'))
 });
 
 items.addEventListener('click', e => {
@@ -31,7 +31,6 @@ const toastLiveExample = document.getElementById('liveToast')
 if (toastTrigger) {
     toastTrigger.addEventListener('click', () => {
         const toast = new bootstrap.Toast(toastLiveExample)
-
         toast.show()
     })
 }
@@ -48,7 +47,6 @@ export const setCar = object => {
         producto.cantidad = carr[producto.id].cantidad + 1
     }
     carr = { ...carr, [producto.id]: producto }
-
     console.log(carr[producto.id]);
     drawCar();
 }
