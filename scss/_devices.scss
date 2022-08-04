@@ -8,9 +8,19 @@
         @content;
     }
 }
+@mixin small-x {
+    @media (max-width: $layout-breakpoint-small-x) {
+        @content;
+    }
+}
 
 @mixin small {
     @media (max-width: $layout-breakpoint-small) {
+        @content;
+    }
+}
+@mixin small-s {
+    @media (max-width: $layout-breakpoint-small-s) {
         @content;
     }
 }

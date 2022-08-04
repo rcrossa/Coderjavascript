@@ -6,10 +6,10 @@ const fragment = document.createDocumentFragment()
 let carr = {}
 
 document.addEventListener('DOMContentLoaded', () => {
-    (window.localStorage.getItem('carr')) ?
-        (carr = JSON.parse(window.localStorage.getItem('carr')))
-            (drawCar()) :
-        (console.log('no anda el carrito'))
+    if (window.localStorage.getItem('carr')) {
+        carr = JSON.parse(window.localStorage.getItem('carr'))
+        drawCar()
+    }
 });
 
 items.addEventListener('click', e => {
