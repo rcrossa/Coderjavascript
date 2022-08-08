@@ -402,13 +402,12 @@ footer {
   grid-template-areas: "content_service1 content_service1 content_service1" "content_service2 content_service3 content_service4";
   background-color: #f4f4f4;
   margin: 0em 1.5em 0em 1.5em; }
-  .main_container_about h1 {
+  .main_container_about .content_service1 {
+    text-align: center;
     padding: 1em 0em 1em 0em;
     font-weight: 600;
     font-family: Arial, Helvetica, sans-serif;
     color: sandybrown; }
-  .main_container_about .content_service1 {
-    text-align: center; }
   .main_container_about .content_service1 {
     grid-area: content_service1;
     text-align: center; }
@@ -424,49 +423,55 @@ footer {
   display: flex;
   justify-content: space-around;
   padding: 3em 0em 3em 0em; }
-
-.form_contact {
-  text-align: justify; }
-  .form_contact .first_part {
-    display: flex;
-    flex-flow: column;
-    max-width: 300px; }
-    .form_contact .first_part legend {
-      text-align: center; }
-    .form_contact .first_part #name,
-    .form_contact .first_part #email {
-      padding-top: 15px;
-      font-size: medium;
-      font-weight: 500; }
-  .form_contact .second_part {
-    padding-top: 5px;
-    display: flex;
-    flex-flow: column; }
-    .form_contact .second_part #description {
+  .main_container_contact .form_contact {
+    text-align: justify; }
+    .main_container_contact .form_contact .first_part {
+      display: flex;
+      flex-flow: column;
       max-width: 300px; }
-    .form_contact .second_part #submit {
-      padding: 15px 25px;
-      margin-top: 15px;
-      max-width: 120px;
-      font-size: 15px;
-      font-weight: bold;
-      text-align: center;
-      cursor: pointer;
-      outline: none;
-      color: #fff;
-      background-color: #002a8f;
-      border: none;
-      border-radius: 15px;
-      box-shadow: 0 9px #999; }
-      .form_contact .second_part #submit:hover {
-        background-color: #00b5f5;
-        box-shadow: 0 2px #666;
-        transform: translateY(4px); }
-  .form_contact .mapa {
+      .main_container_contact .form_contact .first_part legend {
+        text-align: center; }
+      .main_container_contact .form_contact .first_part #name,
+      .main_container_contact .form_contact .first_part #email {
+        padding-top: 15px;
+        font-size: medium;
+        font-weight: 500; }
+    .main_container_contact .form_contact .second_part {
+      padding-top: 5px;
+      display: flex;
+      flex-flow: column; }
+      .main_container_contact .form_contact .second_part #description {
+        max-width: 300px; }
+      .main_container_contact .form_contact .second_part #submit {
+        padding: 15px 25px;
+        margin-top: 15px;
+        max-width: 120px;
+        font-size: 15px;
+        font-weight: bold;
+        text-align: center;
+        cursor: pointer;
+        outline: none;
+        color: #fff;
+        background-color: #002a8f;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 9px #999; }
+        .main_container_contact .form_contact .second_part #submit:hover {
+          background-color: #00b5f5;
+          box-shadow: 0 2px #666;
+          transform: translateY(4px); }
+    .main_container_contact .form_contact .mapa {
+      display: flex;
+      flex-direction: column; }
+      .main_container_contact .form_contact .mapa iframe {
+        padding: 2em 0em 2em 0em; }
+  .main_container_contact .mapa {
     display: flex;
     flex-direction: column; }
-    .form_contact .mapa iframe {
-      padding: 2em 0em 2em 0em; }
+    .main_container_contact .mapa h2 {
+      margin: 0.5em 1em 1em 1em;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 600; }
 
 @media (max-width: 1024px) {
   .ourProduct {
@@ -500,23 +505,23 @@ footer {
   .main_container_contact {
     display: flex;
     flex-direction: column; }
-  .form_contact {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 1.5em; }
-    .form_contact h1 {
-      text-align: center;
-      padding-bottom: 1em; }
-  .mapa {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 1em; }
-    .mapa h2 {
-      margin: 1em;
-      font-family: Arial, Helvetica, sans-serif;
-      font-weight: 600; }
+    .main_container_contact .form_contact {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 1.5em; }
+      .main_container_contact .form_contact h1 {
+        text-align: center;
+        padding-bottom: 1em; }
+    .main_container_contact .mapa {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 1em; }
+      .main_container_contact .mapa h2 {
+        margin: 1em;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 600; }
   /* ---- page service ---- */
   .content_Mobile_Service_2345 h2, .wrapper_service .container_service #content_2 h2, .wrapper_service .container_service #content_3 h2, .wrapper_service .container_service #content_4 h2, .wrapper_service .container_service #content_5 h2 {
     font-size: 1.5em; }
@@ -542,10 +547,9 @@ footer {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(2, 0.4fr);
     grid-template-areas: "content_2 content_3" "content_4 content_5";
-    height: 100vh;
     grid-gap: 5px;
     text-align: center;
-    margin-bottom: 10%; } }
+    margin-bottom: 5%; } }
 
 @media (max-width: 985px) {
   .ourProduct {
@@ -574,7 +578,7 @@ footer {
     padding: 1em; }
   .content_Mobile_Service_2345_Medium img, .container_service #content_2 img, .container_service #content_3 img, .container_service #content_4 img, .container_service #content_5 img {
     height: auto;
-    width: 10em; }
+    width: 8em; }
   .main-head .bgnav .containernav {
     justify-content: space-between;
     position: relative; }
@@ -597,11 +601,10 @@ footer {
       font-size: 1.5em; }
   .container_service {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(4, 0.4fr);
-    grid-template-areas: "content_2" "content_3" "content_4" "content_5";
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas: "content_2 content_3" "content_4 content_5";
     grid-gap: 5px;
-    text-align: center;
-    margin-bottom: 20%; } }
+    text-align: center; } }
 
 @media (max-width: 678px) {
   /* ---- page service ---- */
@@ -657,6 +660,9 @@ footer {
           padding: 2em 1em 1em 1em;
           width: max-content;
           margin: 0; }
+  /* ---- Page contact ----*/
+  .main_container_contact .mapa iframe {
+    width: 100%; }
   footer {
     background-color: #072146;
     justify-content: space-between;

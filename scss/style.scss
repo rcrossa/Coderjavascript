@@ -559,14 +559,12 @@ footer {
     "content_service2 content_service3 content_service4";
   background-color: #f4f4f4;
   margin: 0em 1.5em 0em 1.5em;
-  h1 {
+  .content_service1 {
+    text-align: center;
     padding: 1em 0em 1em 0em;
     font-weight: 600;
     font-family: Arial, Helvetica, sans-serif;
     color: sandybrown;
-  }
-  .content_service1 {
-    text-align: center;
   }
 
   .content_service1 {
@@ -594,59 +592,69 @@ footer {
   display: flex;
   justify-content: space-around;
   padding: 3em 0em 3em 0em;
-}
-.form_contact {
-  text-align: justify;
-  .first_part {
-    display: flex;
-    flex-flow: column;
-    max-width: 300px;
-    legend {
-      text-align: center;
-    }
-    #name,
-    #email {
-      padding-top: 15px;
-      font-size: medium;
-      font-weight: 500;
-    }
-  }
-  .second_part {
-    padding-top: 5px;
-    display: flex;
-    flex-flow: column;
-    #description {
+  .form_contact {
+    text-align: justify;
+    .first_part {
+      display: flex;
+      flex-flow: column;
       max-width: 300px;
+      legend {
+        text-align: center;
+      }
+      #name,
+      #email {
+        padding-top: 15px;
+        font-size: medium;
+        font-weight: 500;
+      }
     }
-    #submit {
-      padding: 15px 25px;
-      margin-top: 15px;
-      max-width: 120px;
-      font-size: 15px;
-      font-weight: bold;
-      text-align: center;
-      cursor: pointer;
-      outline: none;
-      color: #fff;
-      background-color: #002a8f;
-      border: none;
-      border-radius: 15px;
-      box-shadow: 0 9px #999;
-      &:hover {
-        background-color: #00b5f5;
-        box-shadow: 0 2px #666;
-        transform: translateY(4px);
+    .second_part {
+      padding-top: 5px;
+      display: flex;
+      flex-flow: column;
+      #description {
+        max-width: 300px;
+      }
+      #submit {
+        padding: 15px 25px;
+        margin-top: 15px;
+        max-width: 120px;
+        font-size: 15px;
+        font-weight: bold;
+        text-align: center;
+        cursor: pointer;
+        outline: none;
+        color: #fff;
+        background-color: #002a8f;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 9px #999;
+        &:hover {
+          background-color: #00b5f5;
+          box-shadow: 0 2px #666;
+          transform: translateY(4px);
+        }
+      }
+    }
+    .mapa {
+      display: flex;
+      flex-direction: column;
+      iframe {
+        padding: 2em 0em 2em 0em;
       }
     }
   }
   .mapa {
     display: flex;
     flex-direction: column;
-    iframe {
-      padding: 2em 0em 2em 0em;
+    h2 {
+      margin: 0.5em 1em 1em 1em;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 600;
     }
   }
 }
+
 @include large {
   .ourProduct {
     padding: $padding-uno;
@@ -692,26 +700,26 @@ footer {
   .main_container_contact {
     display: flex;
     flex-direction: column;
-  }
-  .form_contact {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 1.5em;
-    h1 {
-      text-align: center;
-      padding-bottom: 1em;
+    .form_contact {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 1.5em;
+      h1 {
+        text-align: center;
+        padding-bottom: 1em;
+      }
     }
-  }
-  .mapa {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 1em;
-    h2 {
+    .mapa {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       margin: 1em;
-      font-family: Arial, Helvetica, sans-serif;
-      font-weight: 600;
+      h2 {
+        margin: 1em;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 600;
+      }
     }
   }
   /* ---- page service ---- */
@@ -758,10 +766,9 @@ footer {
       grid-template-areas:
         "content_2 content_3"
         "content_4 content_5";
-      height: 100vh;
       grid-gap: 5px;
       text-align: center;
-      margin-bottom: 10%;
+      margin-bottom: 5%;
       #content_2,
       #content_3,
       #content_4,
@@ -807,7 +814,7 @@ footer {
     }
     img {
       height: auto;
-      width: 10em;
+      width: 8em;
     }
   }
   .main-head {
@@ -850,15 +857,13 @@ footer {
   .container_service {
     // display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(4, 0.4fr);
+    grid-template-rows: repeat(2, 1fr);
     grid-template-areas:
-      "content_2"
-      "content_3"
-      "content_4"
-      "content_5";
+      "content_2 content_3"
+      "content_4 content_5";
     grid-gap: 5px;
     text-align: center;
-    margin-bottom: 20%;
+    // margin-bottom: 10%;
     #content_2,
     #content_3,
     #content_4,
@@ -884,7 +889,6 @@ footer {
       font-size: 1em;
     }
   }
-
   .card-body {
     h5 {
       font-size: 1.2em;
@@ -940,6 +944,15 @@ footer {
           width: max-content;
           margin: $margin-cero;
         }
+      }
+    }
+  }
+
+  /* ---- Page contact ----*/
+  .main_container_contact {
+    .mapa {
+      iframe {
+        width: 100%;
       }
     }
   }
