@@ -3,6 +3,8 @@ const footer = document.getElementById('footer')
 const templateFooter = document.getElementById('template-footer').content
 const templateCarrito = document.getElementById('template-carrito').content
 const fragment = document.createDocumentFragment()
+const btnFincompra = document.getElementById('finalizarCompra');
+const btnFincompraIndex = document.getElementById('finCompraIndex');
 let carr = {}
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -91,22 +93,6 @@ export const drawFooter = () => {
         carr = {};
         drawCar();
     })
-    const btnFincompra = document.getElementById('finalizarCompra');
-    const btnFincompraIndex = document.getElementById('finalizarCompraIndex');
-
-
-
-    if (btnFincompra) {
-        btnFincompra.addEventListener('click', () => {
-            location.assign('../section/checkoutForm.html');
-        });
-    }
-    if (btnFincompraIndex) {
-        btnFincompra.addEventListener('click', () => {
-            location.assign('./section/checkoutForm.html');
-        });
-    }
-
 }
 
 export const btnAction1 = e => {
@@ -153,4 +139,16 @@ export const btnAction = e => {
     }
 
     e.stopPropagation();
+}
+
+if (btnFincompra) {
+    btnFincompra.addEventListener('click', () => {
+        location.assign('../section/checkoutForm.html');
+    });
+}
+if (btnFincompraIndex) {
+    btnFincompraIndex.addEventListener('click', () => {
+        location.assign('./section/checkoutForm.html');
+    })
+
 }
