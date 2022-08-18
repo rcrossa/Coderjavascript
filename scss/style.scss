@@ -305,10 +305,13 @@ footer {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
         .card_product {
           margin: 0.5em;
-          .video {
+          .ratio {
             background-color: black;
-            width: auto;
-            height: 350px;
+            .video {
+              background-color: black;
+              width: auto;
+              height: 350px;
+            }
           }
           .card-body {
             background-color: #d4edfc;
@@ -654,7 +657,11 @@ footer {
     }
   }
 }
-
+// checkout
+.container-checkout {
+  max-width: 960px;
+  padding: 1em;
+}
 @include large {
   .ourProduct {
     padding: $padding-uno;
@@ -755,7 +762,7 @@ footer {
         font-size: 2em;
       }
       p {
-        font-size: 1.5em;
+        font-size: 1em;
       }
     }
 
@@ -833,42 +840,42 @@ footer {
       }
     }
   }
-
-  .main_service {
-    .card-body {
-      h5 {
-        font-size: 1.3em;
-        text-align: center;
+  .wrapper_service {
+    .main_service {
+      .card-body {
+        h5 {
+          font-size: 1.3em;
+          text-align: center;
+        }
+        p {
+          font-size: 1em;
+        }
+      }
+    }
+    #content_1 {
+      h2 {
+        font-size: 1.8em;
       }
       p {
         font-size: 1em;
       }
     }
-  }
-  #content_1 {
-    padding: 0.5em 0.5em 0.5em 0.5em;
-    h2 {
-      font-size: 1.8em;
-    }
-    p {
-      font-size: 1.5em;
-    }
-  }
-  .container_service {
-    // display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(2, 1fr);
-    grid-template-areas:
-      "content_2 content_3"
-      "content_4 content_5";
-    grid-gap: 5px;
-    text-align: center;
-    // margin-bottom: 10%;
-    #content_2,
-    #content_3,
-    #content_4,
-    #content_5 {
-      @extend .content_Mobile_Service_2345_Medium;
+    .container_service {
+      // display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(2, 1fr);
+      grid-template-areas:
+        "content_2 content_3"
+        "content_4 content_5";
+      grid-gap: 5px;
+      text-align: center;
+      // margin-bottom: 10%;
+      #content_2,
+      #content_3,
+      #content_4,
+      #content_5 {
+        @extend .content_Mobile_Service_2345_Medium;
+      }
     }
   }
 }
@@ -880,33 +887,38 @@ footer {
       width: 10em;
     }
   }
-  #content_1 {
-    padding: 0em 0.5em 0em 0.5em;
-    h2 {
-      font-size: 1.8em;
+  .wrapper_service {
+    #content_1 {
+      // padding: 0em 0.5em 0em 0.5em;
+      h2 {
+        font-size: 1.5em;
+      }
+      p {
+        font-size: 1em;
+      }
     }
-    p {
-      font-size: 1em;
+    #main_service {
+      .card-body {
+        h5 {
+          font-size: 1.2em;
+          text-align: center;
+        }
+        p {
+          font-size: 1em;
+        }
+      }
     }
-  }
-  .card-body {
-    h5 {
-      font-size: 1.2em;
+
+    .container_service {
+      grid-gap: 5px;
       text-align: center;
-    }
-    p {
-      font-size: 1em;
-    }
-  }
-  .container_service {
-    grid-gap: 5px;
-    text-align: center;
-    margin-bottom: 20%;
-    #content_2,
-    #content_3,
-    #content_4,
-    #content_5 {
-      @extend .content_Mobile_Service_2345_Small-x;
+      margin-bottom: 20%;
+      #content_2,
+      #content_3,
+      #content_4,
+      #content_5 {
+        @extend .content_Mobile_Service_2345_Small-x;
+      }
     }
   }
 }
@@ -1032,8 +1044,8 @@ footer {
   }
 
   .card-body {
-    h5 {
-      font-size: 1em;
+    h2 {
+      font-size: 2em;
       text-align: center;
     }
 
@@ -1041,13 +1053,16 @@ footer {
       font-size: 0.8em;
     }
   }
+
   .container_service {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
     grid-template-areas:
-      "content_2 content_3"
-      "content_4 content_5";
-    grid-gap: 2px;
+      "content_2"
+      "content_3"
+      "content_4"
+      "content_5";
+    // grid-gap: 0px;
     text-align: center;
     margin-bottom: 20%;
     #content_2,

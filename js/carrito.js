@@ -7,8 +7,8 @@ let carr = {}
 
 document.addEventListener('DOMContentLoaded', () => {
     if (window.localStorage.getItem('carr')) {
-        carr = JSON.parse(window.localStorage.getItem('carr'))
-        drawCar()
+        carr = JSON.parse(window.localStorage.getItem('carr'));
+        drawCar();
     }
 });
 
@@ -91,6 +91,21 @@ export const drawFooter = () => {
         carr = {};
         drawCar();
     })
+    const btnFincompra = document.getElementById('finalizarCompra');
+    const btnFincompraIndex = document.getElementById('finalizarCompraIndex');
+
+
+
+    if (btnFincompra) {
+        btnFincompra.addEventListener('click', () => {
+            location.assign('../section/checkoutForm.html');
+        });
+    }
+    if (btnFincompraIndex) {
+        btnFincompra.addEventListener('click', () => {
+            location.assign('./section/checkoutForm.html');
+        });
+    }
 
 }
 
