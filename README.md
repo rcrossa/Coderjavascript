@@ -13,4 +13,4 @@ Using the following Languages and Tools:
 
 # Details
 
-Remember, You need to have install nodejs and if you need to change the style is necessary to run: yarn watch-css
+Remember, If you want to change the styles is necessary to run: yarn watch-css to see the changes after changing the CSS code
